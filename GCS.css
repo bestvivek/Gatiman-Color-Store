@@ -1,0 +1,722 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* ===== Desktop Layout ===== */
+header {
+
+  height: 100px;
+  background-color: rgba(249, 189, 189, 0.121);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+}
+
+.logo {
+  margin: 50px;
+
+  clip-path: circle(60%)
+}
+
+.top-text {
+  margin-left: 100px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  text-transform: uppercase;
+}
+
+.top-text a {
+  color: rgb(2, 2, 2);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 0.1s;
+}
+
+.top-text a:hover {
+  color: rgb(255, 0, 0);
+}
+
+#cart-radius {
+
+  border: 1px solid #222;
+  border-radius: 20px;
+  height: 40px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: rgb(2, 2, 2);
+  margin-right: 50px;
+  transition: 0.1s;
+
+}
+
+#cart-radius:hover {
+  background-color: #00ff0d;
+  transform: scale(1.1);
+
+}
+/* ===== Mobile Responsive (768px se chhota screen) ===== */
+
+@media(max-width: 768px)
+{
+  header {
+    flex-direction: column;
+    height: auto;
+   align-self: center;
+    
+  }
+  
+  .logo {
+    margin: 10px auto;
+  }
+  .top-text{
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+    align-items: center;
+    padding: 0; 
+    margin-left: 0;
+  }
+  .top-text a {
+    text-align: center;       /* text center */
+    width: 100%;              /* poora line cover karega */
+  }
+  #cart-radius {
+    margin: 10px auto;
+  }
+}
+/* after Hr - before Main */
+
+.Decorate-It {
+  display: flex;
+  font-family: "Roboto", Sans-serif;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: 600;
+  height: 150px;
+  align-items: center;
+
+}
+
+.tagline {
+  display: inline-block;
+  /* पूरे block को control */
+  position: relative;
+}
+
+.shop-name {
+  display: block;
+  font-size: 18px;
+  color: #ff0000;
+  text-align: left;
+  /* tagline ke andar left align */
+  position: absolute;
+  right: -120px;
+  /* tagline ke last ke niche align */
+  top: 100%;
+  /* tagline ke neeche */
+  animation: blink 4s infinite;
+  /* Blink effect */
+}
+
+@keyframes blink {
+
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  /* दिखाई दे रहा */
+  25%,
+  75% {
+    opacity: -0.2;
+  }
+
+
+}
+
+
+/* Start Main*/
+
+.hero-slider {
+  height: 600px;
+  width: 2000px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  background: #f4f4f4;
+  border-radius: 16px;
+  margin: 0 auto;
+}
+
+.slides {
+  display: flex;
+  height: 100%;
+  width: 400%;
+  /* 4 slides हैं → इसलिए 100% × 4 */
+  animation: slide 16s infinite;
+  transition: transform 0.6s ease;
+}
+
+
+
+.slide {
+  flex: 0 0 100%;
+  /* हर स्लाइड full width ले */
+  height: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 2000px;
+  height: 600px;
+  object-fit: fill;
+
+}
+
+/* --- Keyframes: 4 स्लाइड्स --- */
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+
+  20% {
+    transform: translateX(0%);
+  }
+
+  25% {
+    transform: translateX(-100%);
+  }
+
+  45% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(-200%);
+  }
+
+  70% {
+    transform: translateX(-200%);
+  }
+
+  75% {
+    transform: translateX(-300%);
+  }
+
+  95% {
+    transform: translateX(-300%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+
+  /* वापस शुरुआत */
+}
+
+/* नीचे छोटे dots */
+.dots {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;
+}
+
+/* Optional: ऊपर हल्का gradient overlay (readability) */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+
+.caption {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  font: 700 28px/1.2 system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.3px;
+}
+
+
+/* shop section wala list  */
+.c-head {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  object-fit: fill;
+  display: flex;
+  justify-content: center;
+
+
+
+}
+
+.c1 {
+  position: relative;
+
+
+}
+
+.c1 img {
+  height: 250px;
+  width: 250px;
+  object-fit: fill;
+  margin-right: 20px;
+  border: solid #ccc 1px;
+  border-radius: 10px;
+  padding: 10px;
+
+
+
+
+}
+
+.shop-btn {
+  position: absolute;
+  bottom: 30px;
+  /* नीचे से थोड़ा ऊपर */
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: black;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 28px;
+  border-radius: 25px;
+
+}
+
+.shop-btn:hover {
+  background: #ff0000;
+  transform: translateX(-50%) scale(1.1);
+}
+
+.shop-by {
+  font-size: 70px;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Categories wala product */
+
+.Categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+
+}
+
+.card {
+  background: rgba(249, 189, 189, 0.193);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  /* 🔥 important for overlay */
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: fill;
+  border-radius: 8px;
+  background-color: #ffffff;
+  display: block;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin: 12px 0 5px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+  flex-grow: 1;
+}
+
+.card button {
+  background: black;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: all 0.3s ease;
+}
+
+.card button:hover {
+  background: #fe0101;
+  transform: scale(1.1);
+}
+
+.Categories .card:last-child {
+  grid-column: 1 / -1;
+  /* पूरी row लेगा */
+  justify-self: center;
+  /* बीच में आ जाएगा */
+  width: 300px;
+}
+
+
+/* --------- Responsive (Tablet & Mobile) -------- */
+
+@media (max-width: 1024px) {
+  .Categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .Categories {
+
+    grid-template-columns: 1fr;
+  }
+
+  /* 🔥 Text overlay on mobile */
+
+  .card h3,
+  .card p,
+  .card button {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    margin: 0;
+    border-radius: 1px;
+  }
+
+  .card h3 {
+    bottom: 60px;
+    /* thoda upar */
+    font-size: 16px;
+  }
+
+  .card p {
+    display: none;
+    /* optional: chhoti screen me text hide */
+  }
+
+  .card button {
+    bottom: 10px;
+    background: #fe0101;
+    border-radius: 1px;
+  }
+}
+
+.collection-m {
+
+  margin-top: 50px;
+  margin-left: 45%;
+}
+
+.collection {
+  background-color: #000000;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  position: absolute;
+
+
+
+}
+
+.collection:hover {
+  background-color: #fe0101;
+
+}
+
+#Featured-Products {
+  text-align: center;
+  margin-top: 200px;
+  font-size: 50px;
+}
+
+#Featured-text {
+  text-align: center;
+  margin: 50px;
+
+}
+
+/* CARt WALA product */
+.Cart {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-left: 150px;
+  margin-top: 100px;
+  max-width: 1200px;
+  gap: 20px;
+  padding: 20px;
+
+}
+
+.Cart-slide {
+
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+
+
+}
+
+.Cart-slide img {
+  width: 100%;
+  height: 200px;
+  object-fit: fill;
+  border-radius: 8px;
+  background-color: #ffffff;
+  display: block;
+  border: #ccc solid 5px;
+
+
+}
+
+.Cart-slide button {
+  background: black;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  width: 150px;
+  display: block;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+.Cart-slide button:hover {
+  background-color: #ff0000;
+}
+
+.Category-text {
+  color: #a09e9e;
+  font-weight: 200;
+  font-size: 15px;
+  font-style: italic;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 0;
+
+
+}
+
+.Dress-link {
+
+  text-decoration: none;
+  margin-left: 10px;
+  margin-top: 5px ;
+  color: #000000;
+  text-transform: uppercase;
+
+}
+
+.line{
+  
+  display: flex;
+
+}
+.line-price{
+   text-decoration: line-through;
+  color: #ccc;
+  font-size: 18px;
+  font-style: inherit;
+}
+.line-price-d{
+   text-decoration: none;
+  color:black;
+  font-size: 18px;
+  font-style: inherit;
+  margin-left: 5px;
+}
+
+/* help section */
+
+.help{
+  display: flex;
+}
+.need-text{
+  font-size: 25px;
+  font-weight: 600;
+  width: 75%;
+  margin-left: 150px;
+}
+.ask-btn{
+  font-size: 10px;
+  font-weight: 600;
+  padding: 10px 5px;
+color: rgb(0, 102, 255);
+
+  margin-left: 150px;
+  margin-top: 30px;
+  display: block;
+  cursor: pointer;
+  border-radius: 20px;
+  border: #ccc 2px solid;
+  background: white;
+}
+.help-right{
+  font-weight: 600;
+  font-size: 40px;
+}
+.help-right-d{
+  margin-right: 100px;
+  margin-top: 50px;
+  color: #555;
+}
+.last{
+ margin-top: 100px ;
+ display: flex;
+  
+}
+.last-img{
+  height: 150px;
+  width: 200px;
+  margin-bottom: 0;
+  margin-left: 150px;
+}
+
+.last-1{
+  margin-left: 50px;
+  margin-bottom: 50px;
+}
+.last-2{
+  font-size: 20px;
+  font-weight: 700;
+  color: #222222cb;
+  margin-left: 170px;
+  margin-top: 10px;
+}
+
+.last-i{
+  margin-left: 170px;
+  margin-top: 20px;
+}
+
+/* last links */
+
+.secound{
+ margin-top: 36px;
+ margin-left: 70px;
+ 
+}
+
+.third{
+  margin-top: 36px;
+ margin-left: 120px;
+}
+
+.fourth{
+  margin-top: 36px;
+ margin-left: 120px;
+ margin-bottom: 15px;
+}
+
+#Important-Links{
+  font-style: inherit;
+  font-size: 25px;
+  margin-bottom: 15px;
+  
+}
+#Quick-Links{
+  font-style: inherit;
+  font-size: 25px;
+  margin-bottom: 15px;
+  
+}
+
+
+
+#text-link{
+  font-style: inherit;
+  font-size: 25px;
+  
+}
+
+.list-link{
+  
+  font-size: 18px;
+  font-style: inherit;
+    font-weight: inherit;
+    line-height: 1.8; 
+}
+
+.short{
+  width: 400px;
+  margin-bottom: 50px;
+}
+
+
+/* footer */
+.footer {
+  
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 24px;
+  padding-top: 25px;
+  
+}
+.footer-1{
+  background: #222;
+  height: 200px;
+  
+}
